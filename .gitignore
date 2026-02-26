@@ -1,0 +1,38 @@
+# 数据集（不上传）
+dataset/
+
+# 推理结果
+results/
+
+# 训练得到的模型权重
+saved_models/
+
+# 预训练模型（APISR 等，需自行下载）
+pretrained_models/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 环境与 IDE
+.env
+.venv/
+venv/
+.env.local
+*.swp
+*.swo
+
+# 系统与临时
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,19 @@
+our model AWMSR:
+
+========================================
+评估结果 (Evaluation Results):
+========================================
+Average NIQE   : 5.5616 (越低越好, Lower is better)
+Average MANIQA : 0.2472 (越高越好, Higher is better)
+Average CLIPIQA: 0.4476 (越高越好, Higher is better)
+========================================
+
+APISR 模型评估结果 (Evaluation Results):
+
+========================================
+APISR 官方模型评估结果 (Evaluation Results):
+========================================
+Average NIQE   : 6.3849 (越低越好, Lower is better)
+Average MANIQA : 0.4760 (越高越好, Higher is better)
+Average CLIPIQA: 0.6703 (越高越好, Higher is better)
+========================================
