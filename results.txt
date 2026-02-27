@@ -40,3 +40,24 @@ Average NIQE   : 4.9087 (越低越好, Lower is better)
 Average MANIQA : 0.4469 (越高越好, Higher is better)
 Average CLIPIQA: 0.7109 (越高越好, Higher is better)
 ========================================
+
+APISR RRDB 
+
+
+
+
+
+
+
+
+ESRGAN
+
+RealESRGAN（optional）
+
+RealESRGAN Anime 6B
+
+APISR GRL
+
+APISR DAT
+
+
