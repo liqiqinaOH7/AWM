@@ -17,3 +17,12 @@ Average NIQE   : 6.3849 (越低越好, Lower is better)
 Average MANIQA : 0.4760 (越高越好, Higher is better)
 Average CLIPIQA: 0.6703 (越高越好, Higher is better)
 ========================================
+
+new 4x RRDB:
+========================================
+评估结果 (Evaluation Results):
+========================================
+Average NIQE   : 5.2683 (越低越好, Lower is better)
+Average MANIQA : 0.2639 (越高越好, Higher is better)
+Average CLIPIQA: 0.4848 (越高越好, Higher is better)
+========================================
