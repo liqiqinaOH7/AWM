@@ -43,7 +43,13 @@ Average CLIPIQA: 0.7109 (越高越好, Higher is better)
 
 APISR RRDB 
 
-
+========================================
+APISR 官方模型评估结果 (Evaluation Results):
+========================================
+Average NIQE   : 5.3858 (越低越好, Lower is better)
+Average MANIQA : 0.4870 (越高越好, Higher is better)
+Average CLIPIQA: 0.6599 (越高越好, Higher is better)
+========================================
 
 
 
