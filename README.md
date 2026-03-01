@@ -47,6 +47,9 @@ ECE285 课程项目：在动漫风格壁纸数据上微调 ESRGAN，实现从低
 - **`inference_apisr_esrgan.ipynb`**  
   使用 APISR 官方预训练 ESRGAN（如 `4x_APISR_RRDB_GAN_generator.pth`）在同一批 LR 上推理，结果保存到 `results/APISR_ESRGAN_inference/`，便于与自训练模型对比。
 
+- **`inference_xinntao_esrgan.ipynb`**  
+  集成 [xinntao/ESRGAN](https://github.com/xinntao/ESRGAN) 官方预训练模型（RRDB_ESRGAN_x4.pth），对 `lowres_4x` 做 4× 超分，结果保存到 `results/xinntao_ESRGAN_4x_inference/`。需自行下载权重至 `pretrained_models/`。
+
 - 评估指标（见 `results/results.txt` 等）：**NIQE**（越低越好）、**MANIQA**、**CLIPIQA**（越高越好），用于对比 AWMSR 与 APISR 在无参考质量上的表现。
 
 ---
@@ -65,6 +68,9 @@ AWM/
 ├── train_esrgan_independent.ipynb   # ESRGAN 微调训练
 ├── inference_esrgan.ipynb           # 自训练模型推理
 ├── inference_apisr_esrgan.ipynb     # APISR 官方模型推理对比
+├── inference_xinntao_esrgan.ipynb   # xinntao/ESRGAN 官方 4x 模型推理
+├── ESRGAN/                          # 官方 ESRGAN RRDBNet 架构（4x）
+│   └── RRDBNet_arch.py
 ├── APISR_tools/                     # 网络与损失（RRDBNet、判别器、感知/GAN 损失等）
 │   ├── architecture/
 │   └── loss/
