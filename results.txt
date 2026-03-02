@@ -41,7 +41,7 @@ Average MANIQA : 0.4469 (越高越好, Higher is better)
 Average CLIPIQA: 0.7109 (越高越好, Higher is better)
 ========================================
 
-APISR RRDB 
+APISR RRDB 2x
 
 ========================================
 APISR 官方模型评估结果 (Evaluation Results):

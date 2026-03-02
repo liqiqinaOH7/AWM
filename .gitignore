@@ -32,6 +32,9 @@ venv/
 *.swp
 *.swo
 
+# 压缩包（数据集打包等）
+*.zip
+
 # 系统与临时
 .DS_Store
 Thumbs.db
