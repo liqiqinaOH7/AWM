@@ -12,7 +12,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchvision.transforms import ToTensor
 from torchvision.utils import save_image
-from fairscale.nn import checkpoint_wrapper
+try:
+    from fairscale.nn import checkpoint_wrapper
+except ImportError:
+    checkpoint_wrapper = None  # optional; only used when fairscale_checkpoint=True
 from omegaconf import OmegaConf
 from timm.models.layers import to_2tuple, trunc_normal_
 
@@ -141,7 +144,7 @@ class TransformerStage(nn.Module):
                 args=args,
             )
             # print(fairscale_checkpoint, offload_to_cpu)
-            if fairscale_checkpoint:
+            if fairscale_checkpoint and checkpoint_wrapper is not None:
                 block = checkpoint_wrapper(block, offload_to_cpu=offload_to_cpu)
             self.blocks.append(block)
 

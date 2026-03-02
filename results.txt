@@ -52,18 +52,26 @@ Average CLIPIQA: 0.6599 (越高越好, Higher is better)
 ========================================
 
 
-
-
-
-
-ESRGAN
+RRDB ESRGAN 4x
+Average NIQE (↓): 4.971024624568482
+Average MANIQA (↑): 0.1564481475901219
+Average CLIPIQA (↑): 0.22200767167152896
 
 RealESRGAN（optional）
 
-RealESRGAN Anime 6B
+RealESRGAN Anime 6B 4x
+Average NIQE   (↓): 6.69014083347963
+Average MANIQA (↑): 0.4554109693878257
+Average CLIPIQA(↑): 0.5670337399579413
 
-APISR GRL
+APISR GRL 4x
+NIQE(↓): 5.7950  
+MANIQA(↑): 0.4815  
+CLIPIQA(↑): 0.6766
 
-APISR DAT
+APISR DAT 4x
+NIQE(↓): 5.9168  
+MANIQA(↑): 0.4434  
+CLIPIQA(↑): 0.6320
 
 
