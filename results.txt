@@ -59,6 +59,13 @@ RealESRGAN Anime 6B 4x
 
 === 2× 超分 ===
 
+Ours: ESRGAN_2x_23block_simple (RRDB 23-block, bicubic only degradation)
+========================================
+  Average NIQE   : 3.8378 (越低越好)
+  Average MANIQA : 0.3010 (越高越好)
+  Average CLIPIQA: 0.5592 (越高越好)
+========================================
+
 Ours: RRDB 2x 6-block (median + blur + sharpen degradation)
 ========================================
   Average NIQE   : 4.9087 (越低越好)
@@ -94,8 +101,19 @@ APISR RRDB 2x (官方预训练)
   6. Ours 23-block simple  : 0.4507
   7. RRDB ESRGAN baseline  : 0.2220
 
+2× NIQE 排名 (越低越好):
+  1. Ours 23-block simple  : 3.8378 ★
+  2. Ours 6-block complex  : 4.9087
+  3. APISR RRDB            : 5.3858
+
+2× CLIPIQA 排名 (越高越好):
+  1. Ours 6-block complex  : 0.7109 ★
+  2. APISR RRDB            : 0.6599
+  3. Ours 23-block simple  : 0.5592
+
 关键结论:
 - 我们的模型在 NIQE(自然度) 上大幅领先所有 baseline
 - 感知质量 (MANIQA/CLIPIQA) 仍有差距，主要原因是 pixel loss 权重过高
 - 简化退化 → NIQE 更好; 复杂退化 → MANIQA/CLIPIQA 更好
-- 2× 超分质量远高于 4×，我们的 2× CLIPIQA(0.7109) 超越 APISR(0.6599)
+- 2× 超分质量远高于 4×，我们的 2× 6-block CLIPIQA(0.7109) 超越 APISR(0.6599)
+- 2× 23-block simple 的 NIQE(3.8378) 为所有 2× 模型中最佳

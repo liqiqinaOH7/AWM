@@ -12,10 +12,11 @@ import sys
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 APISR_DIR = os.path.join(ROOT_DIR, "APISR_tools")
 
-if APISR_DIR not in sys.path:
-    sys.path.append(APISR_DIR)
+# 为了能以 APISR_tools.architecture.rrdb 的形式导入，需要把 ROOT_DIR（父目录）加到 sys.path
+if ROOT_DIR not in sys.path:
+    sys.path.append(ROOT_DIR)
 
-from architecture.rrdb import RRDBNet  # 来自 APISR_tools/architecture/rrdb.py
+from APISR_tools.architecture.rrdb import RRDBNet  # 直接从 APISR_tools 导入
 
 
 def build_rrdb(scale: int = 4, num_block: int = 23, num_feat: int = 64):
