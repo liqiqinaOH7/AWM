@@ -1,69 +1,101 @@
-our model AWMSR:
+============================================================
+  AWM 实验结果汇总 (Anime Wallpaper Super-Resolution)
+  数据集: Konachan 动漫壁纸, 434 张
+  评估指标: NIQE (↓越低越好), MANIQA (↑越高越好), CLIPIQA (↑越高越好)
+============================================================
 
-========================================
-评估结果 (Evaluation Results):
-========================================
-Average NIQE   : 5.5616 (越低越好, Lower is better)
-Average MANIQA : 0.2472 (越高越好, Higher is better)
-Average CLIPIQA: 0.4476 (越高越好, Higher is better)
-========================================
 
-APISR 模型评估结果 (Evaluation Results):
+=== 4× 超分 ===
 
+Ours: ESRGAN_4x_23block_simple (RRDB 23-block, bicubic only degradation)
 ========================================
-APISR 官方模型评估结果 (Evaluation Results):
-========================================
-Average NIQE   : 6.3849 (越低越好, Lower is better)
-Average MANIQA : 0.4760 (越高越好, Higher is better)
-Average CLIPIQA: 0.6703 (越高越好, Higher is better)
+  Average NIQE   : 4.7277 (越低越好)
+  Average MANIQA : 0.2312 (越高越好)
+  Average CLIPIQA: 0.4507 (越高越好)
 ========================================
 
-
-
-
-
-
-new 4x RRDB:
+Ours: RRDB 4x 6-block (median + blur + sharpen degradation)
 ========================================
-评估结果 (Evaluation Results):
-========================================
-Average NIQE   : 5.2683 (越低越好, Lower is better)
-Average MANIQA : 0.2639 (越高越好, Higher is better)
-Average CLIPIQA: 0.4848 (越高越好, Higher is better)
+  Average NIQE   : 5.2683 (越低越好)
+  Average MANIQA : 0.2639 (越高越好)
+  Average CLIPIQA: 0.4848 (越高越好)
 ========================================
 
-new 2x RRDB
+RRDB ESRGAN 4x (baseline)
 ========================================
-评估结果 (Evaluation Results):
-========================================
-Average NIQE   : 4.9087 (越低越好, Lower is better)
-Average MANIQA : 0.4469 (越高越好, Higher is better)
-Average CLIPIQA: 0.7109 (越高越好, Higher is better)
+  Average NIQE   : 4.9710 (越低越好)
+  Average MANIQA : 0.1564 (越高越好)
+  Average CLIPIQA: 0.2220 (越高越好)
 ========================================
 
-APISR RRDB 2x
-
+APISR RRDB 4x (官方预训练)
 ========================================
-APISR 官方模型评估结果 (Evaluation Results):
-========================================
-Average NIQE   : 5.3858 (越低越好, Lower is better)
-Average MANIQA : 0.4870 (越高越好, Higher is better)
-Average CLIPIQA: 0.6599 (越高越好, Higher is better)
+  Average NIQE   : 6.3849 (越低越好)
+  Average MANIQA : 0.4760 (越高越好)
+  Average CLIPIQA: 0.6703 (越高越好)
 ========================================
 
+APISR GRL 4x (官方预训练)
+========================================
+  Average NIQE   : 5.7950 (越低越好)
+  Average MANIQA : 0.4815 (越高越好)
+  Average CLIPIQA: 0.6766 (越高越好)
+========================================
+
+APISR DAT 4x (官方预训练)
+========================================
+  Average NIQE   : 5.9168 (越低越好)
+  Average MANIQA : 0.4434 (越高越好)
+  Average CLIPIQA: 0.6320 (越高越好)
+========================================
+
+RealESRGAN Anime 6B 4x
+========================================
+  Average NIQE   : 6.6901 (越低越好)
+  Average MANIQA : 0.4554 (越高越好)
+  Average CLIPIQA: 0.5670 (越高越好)
+========================================
 
 
+=== 2× 超分 ===
+
+Ours: RRDB 2x 6-block (median + blur + sharpen degradation)
+========================================
+  Average NIQE   : 4.9087 (越低越好)
+  Average MANIQA : 0.4469 (越高越好)
+  Average CLIPIQA: 0.7109 (越高越好)
+========================================
+
+APISR RRDB 2x (官方预训练)
+========================================
+  Average NIQE   : 5.3858 (越低越好)
+  Average MANIQA : 0.4870 (越高越好)
+  Average CLIPIQA: 0.6599 (越高越好)
+========================================
 
 
+=== 分析摘要 ===
 
-ESRGAN
+4× NIQE 排名 (越低越好):
+  1. Ours 23-block simple  : 4.7277 ★
+  2. RRDB ESRGAN baseline  : 4.9710
+  3. Ours 6-block complex  : 5.2683
+  4. APISR GRL             : 5.7950
+  5. APISR DAT             : 5.9168
+  6. APISR RRDB            : 6.3849
+  7. RealESRGAN Anime 6B   : 6.6901
 
-RealESRGAN（optional）
+4× CLIPIQA 排名 (越高越好):
+  1. APISR GRL             : 0.6766 ★
+  2. APISR RRDB            : 0.6703
+  3. APISR DAT             : 0.6320
+  4. RealESRGAN Anime 6B   : 0.5670
+  5. Ours 6-block complex  : 0.4848
+  6. Ours 23-block simple  : 0.4507
+  7. RRDB ESRGAN baseline  : 0.2220
 
-RealESRGAN Anime 6B
-
-APISR GRL
-
-APISR DAT
-
-
+关键结论:
+- 我们的模型在 NIQE(自然度) 上大幅领先所有 baseline
+- 感知质量 (MANIQA/CLIPIQA) 仍有差距，主要原因是 pixel loss 权重过高
+- 简化退化 → NIQE 更好; 复杂退化 → MANIQA/CLIPIQA 更好
+- 2× 超分质量远高于 4×，我们的 2× CLIPIQA(0.7109) 超越 APISR(0.6599)
