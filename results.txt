@@ -7,21 +7,14 @@
 
 === 4× 超分 ===
 
-Ours: ESRGAN_4x_23block_simple (RRDB 23-block, bicubic only degradation)
-========================================
-  Average NIQE   : 4.7277 (越低越好)
-  Average MANIQA : 0.2312 (越高越好)
-  Average CLIPIQA: 0.4507 (越高越好)
-========================================
-
-Ours: RRDB 4x 6-block (median + blur + sharpen degradation)
+Ours: AWMSR RRDB 4x 6-block (median + blur + sharpen degradation)
 ========================================
   Average NIQE   : 5.2683 (越低越好)
   Average MANIQA : 0.2639 (越高越好)
   Average CLIPIQA: 0.4848 (越高越好)
 ========================================
 
-RRDB ESRGAN 4x (baseline)
+RRDB ESRGAN 4x (baseline，非 AWM)
 ========================================
   Average NIQE   : 4.9710 (越低越好)
   Average MANIQA : 0.1564 (越高越好)
@@ -59,18 +52,18 @@ RealESRGAN Anime 6B 4x
 
 === 2× 超分 ===
 
-Ours: ESRGAN_2x_23block_simple (RRDB 23-block, bicubic only degradation)
-========================================
-  Average NIQE   : 3.8378 (越低越好)
-  Average MANIQA : 0.3010 (越高越好)
-  Average CLIPIQA: 0.5592 (越高越好)
-========================================
-
-Ours: RRDB 2x 6-block (median + blur + sharpen degradation)
+Ours: AWMSR RRDB 2x 6-block (median + blur + sharpen degradation)
 ========================================
   Average NIQE   : 4.9087 (越低越好)
   Average MANIQA : 0.4469 (越高越好)
   Average CLIPIQA: 0.7109 (越高越好)
+========================================
+
+Ours: AWM GRL 2x
+========================================
+  Average NIQE   : 5.3640 (越低越好)
+  Average MANIQA : 0.3243 (越高越好)
+  Average CLIPIQA: 0.5541 (越高越好)
 ========================================
 
 APISR RRDB 2x (官方预训练)
@@ -80,40 +73,88 @@ APISR RRDB 2x (官方预训练)
   Average CLIPIQA: 0.6599 (越高越好)
 ========================================
 
+waifu2x 2x
+========================================
+  Average NIQE   : 5.5370 (越低越好)
+  Average MANIQA : 0.4882 (越高越好)
+  Average CLIPIQA: 0.6614 (越高越好)
+========================================
+
+RealCUGAN 2x
+========================================
+  Average NIQE   : 5.5862 (越低越好)
+  Average MANIQA : 0.4935 (越高越好)
+  Average CLIPIQA: 0.6856 (越高越好)
+========================================
+
 
 === 分析摘要 ===
 
 4× NIQE 排名 (越低越好):
-  1. Ours 23-block simple  : 4.7277 ★
-  2. RRDB ESRGAN baseline  : 4.9710
-  3. Ours 6-block complex  : 5.2683
-  4. APISR GRL             : 5.7950
-  5. APISR DAT             : 5.9168
-  6. APISR RRDB            : 6.3849
-  7. RealESRGAN Anime 6B   : 6.6901
+  1. RRDB ESRGAN baseline       : 4.9710 ★
+  2. Ours AWMSR RRDB 6-block    : 5.2683
+  3. APISR GRL                  : 5.7950
+  4. APISR DAT                  : 5.9168
+  5. APISR RRDB                 : 6.3849
+  6. RealESRGAN Anime 6B        : 6.6901
+
+4× MANIQA 排名 (越高越好):
+  1. APISR GRL                  : 0.4815 ★
+  2. APISR RRDB                 : 0.4760
+  3. RealESRGAN Anime 6B        : 0.4554
+  4. APISR DAT                  : 0.4434
+  5. Ours AWMSR RRDB 6-block    : 0.2639
+  6. RRDB ESRGAN baseline       : 0.1564
 
 4× CLIPIQA 排名 (越高越好):
-  1. APISR GRL             : 0.6766 ★
-  2. APISR RRDB            : 0.6703
-  3. APISR DAT             : 0.6320
-  4. RealESRGAN Anime 6B   : 0.5670
-  5. Ours 6-block complex  : 0.4848
-  6. Ours 23-block simple  : 0.4507
-  7. RRDB ESRGAN baseline  : 0.2220
+  1. APISR GRL                  : 0.6766 ★
+  2. APISR RRDB                 : 0.6703
+  3. APISR DAT                  : 0.6320
+  4. RealESRGAN Anime 6B        : 0.5670
+  5. Ours AWMSR RRDB 6-block    : 0.4848
+  6. RRDB ESRGAN baseline : 0.2220
 
 2× NIQE 排名 (越低越好):
-  1. Ours 23-block simple  : 3.8378 ★
-  2. Ours 6-block complex  : 4.9087
-  3. APISR RRDB            : 5.3858
+  1. Ours AWMSR RRDB 6-block    : 4.9087 ★
+  2. Ours AWM GRL 2x            : 5.3640
+  3. APISR RRDB                 : 5.3858
+  4. waifu2x 2x                 : 5.5370
+  5. RealCUGAN 2x               : 5.5862
+
+2× MANIQA 排名 (越高越好):
+  1. RealCUGAN 2x               : 0.4935 ★
+  2. waifu2x 2x                 : 0.4882
+  3. APISR RRDB                 : 0.4870
+  4. Ours AWMSR RRDB 6-block    : 0.4469
+  5. Ours AWM GRL 2x            : 0.3243
 
 2× CLIPIQA 排名 (越高越好):
-  1. Ours 6-block complex  : 0.7109 ★
-  2. APISR RRDB            : 0.6599
-  3. Ours 23-block simple  : 0.5592
+  1. Ours AWMSR RRDB 6-block    : 0.7109 ★
+  2. RealCUGAN 2x               : 0.6856
+  3. waifu2x 2x                 : 0.6614
+  4. APISR RRDB                 : 0.6599
+  5. Ours AWM GRL 2x            : 0.5541
 
 关键结论:
-- 我们的模型在 NIQE(自然度) 上大幅领先所有 baseline
-- 感知质量 (MANIQA/CLIPIQA) 仍有差距，主要原因是 pixel loss 权重过高
-- 简化退化 → NIQE 更好; 复杂退化 → MANIQA/CLIPIQA 更好
-- 2× 超分质量远高于 4×，我们的 2× 6-block CLIPIQA(0.7109) 超越 APISR(0.6599)
-- 2× 23-block simple 的 NIQE(3.8378) 为所有 2× 模型中最佳
+- 我们的 AWMSR RRDB 在 NIQE(自然度) 上表现优异，4× 时 baseline 最佳，2× 时 6-block 最佳
+- 感知质量 (MANIQA/CLIPIQA) 上 APISR 系列仍领先，我们的模型主要受 pixel loss 权重影响
+- 2× 超分质量整体优于 4×，AWMSR RRDB 2× 6-block 的 CLIPIQA(0.7109) 超越 APISR RRDB(0.6599)
+
+
+============================================================
+  附录：不参与排名的 Simple 版本 (bicubic only degradation)
+============================================================
+
+ESRGAN_4x_23block_simple (RRDB 23-block, bicubic only)
+========================================
+  Average NIQE   : 4.7277 (越低越好)
+  Average MANIQA : 0.2312 (越高越好)
+  Average CLIPIQA: 0.4507 (越高越好)
+========================================
+
+ESRGAN_2x_23block_simple (RRDB 23-block, bicubic only)
+========================================
+  Average NIQE   : 3.8378 (越低越好)
+  Average MANIQA : 0.3010 (越高越好)
+  Average CLIPIQA: 0.5592 (越高越好)
+========================================

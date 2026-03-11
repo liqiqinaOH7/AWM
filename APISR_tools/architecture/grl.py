@@ -12,8 +12,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchvision.transforms import ToTensor
 from torchvision.utils import save_image
-from fairscale.nn import checkpoint_wrapper
-from omegaconf import OmegaConf
+try:
+    from fairscale.nn import checkpoint_wrapper
+except ImportError:
+    checkpoint_wrapper = None  # optional: only needed when fairscale_checkpoint=True
+from types import SimpleNamespace
 from timm.models.layers import to_2tuple, trunc_normal_
 
 # Import files from local folder
@@ -141,7 +144,7 @@ class TransformerStage(nn.Module):
                 args=args,
             )
             # print(fairscale_checkpoint, offload_to_cpu)
-            if fairscale_checkpoint:
+            if fairscale_checkpoint and checkpoint_wrapper is not None:
                 block = checkpoint_wrapper(block, offload_to_cpu=offload_to_cpu)
             self.blocks.append(block)
 
@@ -310,12 +313,10 @@ class GRL(nn.Module):
         # stochastic depth
         dpr = [x.item() for x in torch.linspace(0, drop_path_rate, sum(depths))]
         # stochastic depth decay rule
-        args = OmegaConf.create(
-            {
-                "out_proj_type": out_proj_type,
-                "local_connection": local_connection,
-                "euclidean_dist": euclidean_dist,
-            }
+        args = SimpleNamespace(
+            out_proj_type=out_proj_type,
+            local_connection=local_connection,
+            euclidean_dist=euclidean_dist,
         )
         for k, v in self.set_table_index_mask(self.input_resolution).items():
             self.register_buffer(k, v)

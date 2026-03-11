@@ -1,0 +1,131 @@
+{
+  "description": "Full-reference super-resolution evaluation summary",
+  "metrics_note": {
+    "PSNR": "higher is better (dB)",
+    "SSIM": "higher is better",
+    "LPIPS": "lower is better (VGG)",
+    "DISTS": "lower is better",
+    "Edge_F1": "higher is better (Canny)"
+  },
+  "results": [
+    {
+      "model": "Waifu2x",
+      "scale": "2x",
+      "num_images": 434,
+      "PSNR_dB": 27.5192,
+      "SSIM": 0.8501,
+      "LPIPS": 0.2402,
+      "DISTS": 0.1743,
+      "Edge_F1": 0.4970
+    },
+    {
+      "model": "RealCUGAN",
+      "scale": "2x",
+      "num_images": 434,
+      "PSNR_dB": 27.5141,
+      "SSIM": 0.8462,
+      "LPIPS": 0.2480,
+      "DISTS": 0.1779,
+      "Edge_F1": 0.4732
+    },
+    {
+      "model": "RealESRGAN_anime_6B",
+      "scale": "4x",
+      "num_images": 434,
+      "PSNR_dB": 24.4343,
+      "SSIM": 0.7799,
+      "LPIPS": 0.3270,
+      "DISTS": 0.2355,
+      "Edge_F1": 0.2643
+    },
+    {
+      "model": "xinntao_ESRGAN",
+      "scale": "4x",
+      "num_images": 434,
+      "PSNR_dB": 24.2179,
+      "SSIM": 0.7305,
+      "LPIPS": 0.4360,
+      "DISTS": 0.3038,
+      "Edge_F1": 0.0833
+    },
+    {
+      "model": "APISR_DAT",
+      "scale": "4x",
+      "num_images": 434,
+      "PSNR_dB": 20.5051,
+      "SSIM": 0.6934,
+      "LPIPS": 0.3660,
+      "DISTS": 0.2379,
+      "Edge_F1": 0.1496
+    },
+    {
+      "model": "APISR_GRL",
+      "scale": "4x",
+      "num_images": 434,
+      "PSNR_dB": 19.9061,
+      "SSIM": 0.6819,
+      "LPIPS": 0.3813,
+      "DISTS": 0.2521,
+      "Edge_F1": 0.1436
+    },
+    {
+      "model": "APISR_RRDB",
+      "scale": "2x",
+      "num_images": 433,
+      "num_block": 6,
+      "is_apisr": true,
+      "PSNR_dB": 23.7874,
+      "SSIM": 0.8179,
+      "LPIPS": 0.2552,
+      "DISTS": 0.1948,
+      "Edge_F1": 0.5268
+    },
+    {
+      "model": "APISR_RRDB",
+      "scale": "4x",
+      "num_images": 434,
+      "num_block": 6,
+      "is_apisr": true,
+      "PSNR_dB": 22.0093,
+      "SSIM": 0.7616,
+      "LPIPS": 0.3155,
+      "DISTS": 0.2281,
+      "Edge_F1": 0.3547
+    },
+    {
+      "model": "ESRGAN_finetune",
+      "scale": "2x",
+      "num_images": 434,
+      "num_block": 6,
+      "is_apisr": false,
+      "PSNR_dB": 28.825,
+      "SSIM": 0.8544,
+      "LPIPS": 0.2186,
+      "DISTS": 0.1538,
+      "Edge_F1": 0.5619
+    },
+    {
+      "model": "ESRGAN_finetune",
+      "scale": "4x",
+      "num_images": 434,
+      "num_block": 23,
+      "is_apisr": false,
+      "PSNR_dB": 24.0451,
+      "SSIM": 0.7251,
+      "LPIPS": 0.3828,
+      "DISTS": 0.2545,
+      "Edge_F1": 0.2618
+    },
+    {
+      "model": "GRL_finetune",
+      "scale": "2x",
+      "num_images": 434,
+      "is_grl": true,
+      "PSNR_dB": 28.1727,
+      "SSIM": 0.829,
+      "LPIPS": 0.2763,
+      "DISTS": 0.191,
+      "Edge_F1": 0.5111
+    }
+  ]
+}
