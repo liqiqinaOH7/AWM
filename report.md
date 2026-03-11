@@ -168,7 +168,7 @@ GRL 与 RRDB 使用**同一判别器**（UNetDiscriminatorSN）及**同一套损
 
 - **数据集**：Konachan 动漫壁纸测试集 **434 张**（`results.txt` 标注），用于无参考评估与大部分全参考评估。
 - **倍率**：**2×** 与 **4×** 两个放大倍率。
-- **训练配置（ours）**：从头训练，关键超参以独立训练脚本为准。
+- **训练配置（ours）**：从头训练，关键超参以独立训练脚本为准。**我们只训练了 GRL 的 2× 版本，没有训练 GRL 4×**；因此 4× 的 GRL 对比仅包含公开模型（如 APISR 官方预训练 GRL 4×）。
   - **RRDB（2×/4×）**：`train_esrgan_independent.ipynb`：**NUM_EPOCHS=150**，**BATCH_SIZE=8**，**PATCH_SIZE=256**，**LEARNING_RATE=1e-5**，**betas=(0.9, 0.999)**，**LR_STEP_SIZE=30**，**LR_GAMMA=0.5**，**LR_MIN=1e-6**，**WARMUP_EPOCHS=5**；损失权重 **WEIGHT_PIXEL=10.0**、**WEIGHT_VGG=0.05**、**WEIGHT_DANBOORU=0.025**、**WEIGHT_GAN=1.0**；**SAVE_FREQ=10**。
   - **GRL（2×）**：`train_grl_independent.ipynb`：**NUM_EPOCHS=150**，**BATCH_SIZE=8**，**PATCH_SIZE=224**（LR patch 112），**LEARNING_RATE=1e-5**，**betas=(0.9, 0.999)**，**LR_FIRST_DECAY_AT_EPOCH=37**，**LR_STEP_SIZE=30**，**LR_GAMMA=0.5**，**LR_MIN=1e-6**；损失权重 **WEIGHT_PIXEL=10.0**、**WEIGHT_VGG=0.05**、**WEIGHT_DANBOORU=0.025**、**WEIGHT_GAN=1.0**；三阶段 **G_WARMUP_EPOCHS=3**、**D_WARMUP_EPOCHS=3**、**GAN_START_EPOCH=7**；**SAVE_FREQ=10**。GRL 架构参数：**GRL_DEPTHS=[4,4,4,4]**、**GRL_EMBED_DIM=128**、**GRL_NUM_HEADS=[2,2,2,2]**、`upsampler="pixelshuffle"`。
 
