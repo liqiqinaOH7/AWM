@@ -1,8 +1,10 @@
 # AWM / AWMSR — Anime Wallpaper Master Super-Resolution
 
-> **发行版说明（Official Release README）**  
-> 本文档是本仓库的正式发行版说明文档，内容覆盖任务定义、数据集构建、退化建模、模型架构、训练策略、评测指标、定量结果与复现实用流程。  
-> 文档中所有关键描述与数值均来自本仓库实现与当前实验配置（测试集 434 张）。
+**Language**: **简体中文** | [English](README.en.md)
+
+[![HF Models](https://img.shields.io/static/v1?label=Models&message=HuggingFace&color=orange)](https://huggingface.co/liqiqinaOH7/AWMSR/tree/main)
+&ensp;
+[![HF Dataset](https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=orange)](https://huggingface.co/datasets/liqiqinaOH7/AWM)
 
 ---
 
@@ -344,6 +346,16 @@ $$
 ## 13. 复现指南（Notebooks）
 
 本仓库以 notebook 为主要入口，核心流程为：
+
+### 13.0 预训练模型与数据集下载（Hugging Face）
+
+- **预训练模型（AWMSR）**：在 Hugging Face 模型库下载（包含 `AWM_RRDB_2x.pth`、`AWM_GRL_2x.pth`、`AWM_RRDB_4x.pth`）。  
+  - 下载页：[liqiqinaOH7/AWMSR](https://huggingface.co/liqiqinaOH7/AWMSR/tree/main)
+  - **建议放置目录**：`saved_models/`（或你在 notebook 里配置的权重目录）
+
+- **数据集（AWM）**：在 Hugging Face 数据集库下载（1.48k 样本，train/test 与本项目划分一致）。  
+  - 下载页：[liqiqinaOH7/AWM](https://huggingface.co/datasets/liqiqinaOH7/AWM)
+  - **建议放置目录**：`dataset/`（并保持 HR/LR 子目录结构与列表文件一致）
 
 ### 13.1 数据获取与整理
 
